@@ -33,10 +33,7 @@ input[type=date]{-webkit-appearance:none;appearance:none;}
 <body>
 <div id="root"><div style="display:flex;align-items:center;justify-content:center;height:100vh;color:#9A9087;font-family:Inter,sans-serif;">Yükleniyor…</div></div>
 <script>
-// ÖNCE: tüm eski service worker ve cache'leri TEMİZLE
-if('serviceWorker' in navigator){
-  navigator.serviceWorker.getRegistrations().then(rs=>rs.forEach(r=>r.unregister()));
-}
+if('serviceWorker' in navigator){ navigator.serviceWorker.getRegistrations().then(rs=>rs.forEach(r=>r.unregister())); }
 if('caches' in window){ caches.keys().then(ks=>ks.forEach(k=>caches.delete(k))); }
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
